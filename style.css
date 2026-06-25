@@ -1,0 +1,141 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+html main{
+  display: flex;
+  flex-direction: column;
+}
+#titulo {
+  font-size: 24vw;
+  text-align: center;
+  font-weight: bold;
+  line-height: 0.9;
+  font-family: 'Anton', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+#content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+#content > div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-bubble {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20vw;
+  height: 20vw;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 100;
+  transition:
+    width  1s cubic-bezier(0.77, 0, 0.175, 1),
+    height 1s cubic-bezier(0.77, 0, 0.175, 1),
+    border-radius 1s cubic-bezier(0.77, 0, 0.175, 1),
+    box-shadow 1s ease;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.30);
+}
+
+.video-bubble:hover {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.video-bubble video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.play-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.25);
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.play-icon svg {
+  width: 56px;
+  height: 56px;
+}
+
+.video-bubble:hover .play-icon {
+  opacity: 0;
+}
+#sub-titulo-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  cursor: none;
+  z-index: 1;
+  margin-top: -2vw;
+  box-sizing: border-box;
+  /* SEM padding aqui */
+}
+
+#sub-titulo,
+#sub-titulo-branco {
+  font-size: 5vw;
+  font-weight: bold;
+  line-height: 1.2;
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+  white-space: pre-line;
+  text-align: left;
+  margin: 0;
+  padding-left: 2vw;     /* recuo aqui, igual nos dois */
+  box-sizing: border-box;
+}
+
+#sub-titulo {
+  color: #111;
+  position: relative;
+  z-index: 1;
+}
+
+#sub-titulo-branco {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;           /* mesma largura do preto */
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+}
+#bola {
+  position: absolute;
+  top: 0; left: 0;
+  width: 8vw;
+  height: 8vw;
+  border-radius: 50%;
+  background: #ff5a1f;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 2;
+}
